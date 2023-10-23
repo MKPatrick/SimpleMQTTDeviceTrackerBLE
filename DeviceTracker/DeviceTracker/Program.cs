@@ -16,11 +16,13 @@ do
 {
     IEnumerable<Device> devicesFound = await bleScanner.ScanForDevices(SCANTIME);
 
-    foreach (var device in devicesFound)
+    foreach (Device device in devicesFound)
     {
         var alreadyTrackedDevice = trackedDevices.FirstOrDefault(x => x.MAC == device.MAC);
         if (alreadyTrackedDevice != null)
+        {
             alreadyTrackedDevice.LastSeen = DateTime.Now;
+        }
         else
         {
             trackedDevices.Add(new TrackedDevice(device) { LastSeen = DateTime.Now });

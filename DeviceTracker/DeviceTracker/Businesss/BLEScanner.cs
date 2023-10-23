@@ -31,14 +31,12 @@ namespace DeviceTracker.Businesss
                 StopScanningProcess();
                 await Task.Delay(500);
                 var lines = await File.ReadAllLinesAsync("scanneddevices.txt");
-                Console.WriteLine(lines.Count());
                 foreach (var item in lines)
                 {
-                    Console.WriteLine(item);
                     var deviceMatch = _deviceConfig.Devices.FirstOrDefault(x => item.Contains(x.MAC));
-                    if (!devices.Contains(deviceMatch))
+                    if (!devices.Contains(deviceMatch) && deviceMatch != null)
                     {
-                        Console.WriteLine("MATCH!!");
+                        Console.WriteLine($"MATCH!! {deviceMatch.Name} {deviceMatch.Topic} {deviceMatch.MAC}");
                         devices.Add(deviceMatch);
                     }
                 }
