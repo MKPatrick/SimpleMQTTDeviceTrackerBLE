@@ -12,6 +12,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.0-rc.2.23479.6" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.2-mauipre.1.22102.15" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Plugin.BLE" Version="3.0.0" />
   </ItemGroup>
 
   <ItemGroup>
